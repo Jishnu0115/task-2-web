@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task 2 - Form & Layout</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    form { max-width: 400px; margin-bottom: 30px; }
+    input { display: block; width: 100%; margin: 10px 0; padding: 8px; }
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 600px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Contact Form</h2>
+  <form onsubmit="return validateForm()">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <input type="submit" value="Submit">
+  </form>
+
+  <h2>Responsive Layout</h2>
+  <div class="layout">
+    <div style="background: #ddd; padding: 10px;">Box 1</div>
+    <div style="background: #bbb; padding: 10px;">Box 2</div>
+  </div>
+
+  <script>
+    function validateForm() {
+      const email = document.getElementById('email').value;
+      if (!email.includes('@')) {
+        alert('Enter a valid email');
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
